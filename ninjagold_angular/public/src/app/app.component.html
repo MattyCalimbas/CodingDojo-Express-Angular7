@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+  <title>Ninja Gold Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+</head>
+<body>
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Ninja Gold</h1>
+            <p class="lead text-muted">Enter every location and hunt for gold!</p>
+        </div>
+    </section>
+
+    <div class='container'>
+        <h3 class='text-center mb-5'> Your Gold: {{ gold }}</h3>
+       
+        <div class='row'>
+            <div class = 'col'>
+                <p class='mb-0'>Farm</p>
+                <p class='text-muted'>(Earns 2-5 gold)</p>
+                <button (click)="farm()">Find Gold!</button>
+            </div>
+
+            <div class = 'col'>
+                <p class='mb-0'>Cave</p>
+                <p class='text-muted'>(Earns 5-10 gold)</p>
+                <button (click)="cave()">Find Gold!</button>
+            </div>
+
+            <div class = 'col'>
+                <p class='mb-0'>House</p>
+                <p class='text-muted'>(Earns 7-15 gold)</p>
+                <button (click)="house()">Find Gold!</button>
+            </div>
+
+            <div class = 'col'>
+            	<p class='mb-0'>Casino</p>
+            	<p class='text-muted'>(Earns or Takes 0-100 gold)</p>
+              <button (click)="casino()">Find Gold!</button>
+            </div>
+        </div>
+
+          <p class='mb-0 mt-5'>Activities:</p>
+            <div style="overflow: auto; width:auto; height:150px;">
+                
+						<p *ngFor="let x of activity">{{x}}</p>
+				
+			    </div>
+            
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+</body>
+</html>
