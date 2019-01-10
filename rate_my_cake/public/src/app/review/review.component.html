@@ -1,0 +1,14 @@
+<form (submit)="addComment(cakeReview._id)">
+  <p>
+    <select name="comment.rating" id="" [(ngModel)]="comment.rating" class="form-control-sm" >
+      <option>5</option>
+      <option>4</option>
+      <option>3</option>
+      <option>2</option>
+      <option>1</option>
+    </select>
+  </p>
+
+  <p><textarea name="comment.comment" id="" cols="35" rows="5" placeholder="Place comment here!" [(ngModel)] ="comment.comment"></textarea></p>
+  <button type="submit" class="btn btn-outline-primary btn-sm">Submit</button>
+</form>
