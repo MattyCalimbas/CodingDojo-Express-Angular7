@@ -1,0 +1,15 @@
+<button type="button" class="btn btn-primary mt-2 mb-2" (click)="goHome()">Home</button>
+<h4>Know of a pet needing a home?</h4>
+<p class='text text-danger' *ngFor="let e of errors">{{ e }}</p>
+<form (submit)= "onSubmit()">
+    <p>Pet Name: <input type="text" name="pet.name" [(ngModel)]="pet.name" class="form-control"></p>
+    <p>Pet Type: <input type="text" name="pet.type" [(ngModel)]="pet.type" class="form-control"></p>
+    <p>Description: <input type="text" name="pet.description" [(ngModel)]="pet.description" class="form-control"></p>
+    <h6>Skills:</h6>
+    <p>Skill 1: <input type="text" name="pet.skill1" [(ngModel)]="pet.skill1" class="form-control"></p>
+    <p>Skill 2: <input type="text" name="pet.skill2" [(ngModel)]="pet.skill2" class="form-control"></p>
+    <p>Skill 3: <input type="text" name="pet.skill3" [(ngModel)]="pet.skill3" class="form-control"></p>
+
+    <button type="submit" class="btn btn-outline-success">Submit</button>
+    <button type="button" class="btn btn-outline-danger ml-3" (click)="goHome()">Cancel</button>
+  </form>
