@@ -1,0 +1,9 @@
+img {
+    width:30%;
+}
+.row-centered {
+    text-align:center;
+    display: flex;
+    align-items: baseline;
+    justify-content: baseline;
+}

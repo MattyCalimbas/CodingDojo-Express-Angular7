@@ -1,0 +1,26 @@
+<div class="container">
+  <div *ngIf="beer">
+    <div class="row">
+
+      <div class="col-4">
+        <img src="{{beer[0].image_url}}">
+      </div>
+
+      <div class="col-8 mt-5">
+
+          <h1 class="font-italic">{{beer[0].name}} </h1> 
+          <h2> {{beer[0].tagline}}</h2>
+          <h3 class="text-muted">IBU: {{beer[0].ibu}} | ABV: {{beer[0].abv}}</h3>
+
+        <h3 class="ml-3 mt-4"><span class="font-italic">Description:</span> {{beer[0].description}}</h3>
+        <h3 class="ml-3 mt-4"><span class="font-italic">Food Pairings:</span></h3>
+        <h5>
+          <ul>
+            <li *ngFor='let food_pairing of food_pairings'>{{food_pairing}}</li>
+          </ul>
+        </h5>
+      </div>
+
+    </div>
+  </div>
+</div>
