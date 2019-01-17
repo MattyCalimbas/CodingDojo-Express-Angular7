@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Coding Dojo Message Board</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <style>
+        .jumbotron {
+            margin-bottom: 0;
+            background-color:white;
+            border-radius: .3rem;
+            padding-bottom: 25px;
+            padding-left:0px;
+            padding-top:10px;
+        }
+        ul {
+            list-style: none;
+            padding-left: 10px;
+        }
+    </style>
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Coding Dojo Message Board</a>
+        <div class ="ml-auto navbar-text">Welcome</div>
+    </nav>
+    
+    <div class="container">
+            
+        <% if(typeof(errors) != 'undefined' ) { %>
+            <% for (var x in errors) { %>
+                <p class='text-danger'><%= errors[x].message %></p>
+            <% } %>
+        <% } %>
+        
+        <div class="jumbotron">
+            <form action = '/message' method='post'>
+                <h4>Name:</h4>
+                <input type="text" name="name">
+
+                <h4>Post a message:</h4>
+                <div class="form-group">
+                    <textarea class="form-control" name="message" rows="6"></textarea>
+                    <button class='btn btn-primary mt-3' type='submit'>Post a Message</button>
+                </div>
+            </form>
+        </div>
+        <% for(var message of msg){ %>
+            <div class='row'>
+                <h5 class = 'ml-3'>Name: <%= message.name %></h5>
+            </div>
+            <h4 class='mb-3'>Message: <%= message.message %></h4>
+            <% for (var comment of message.comments) { %>
+            <div class='row'>
+                <p class='mb-0 ml-4'>Comment:</p><p class='font-weight-bold font-italic mb-0 ml-1'><%= comment.comment %></p>
+            </div>  
+                <ul>
+                <li> <p class='font-weight-light ml-4 mb-0'>via: <%= comment.name %></p></li>
+                </ul>
+            <% } %>
+            
+       
+            <form action = '/comment/<%= message._id %>' method='post'>
+                <h6>Name:</h6>
+                <input type="text" name="name">
+
+                <h6 class='text-muted'>Post a comment:</h6>
+                <div class="form-group">
+                    <textarea class="form-control" name="comment" rows="1"></textarea>
+                    <button class='btn btn-success btn-sm mt-3 mb-5' type='submit'>Post a Comment</button>
+                </div>
+            </form>
+        <% } %>
+    </div>
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1">&copy; 2017-2018 MattCal Development Group</p>
+            <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Support</a></li>
+            </ul>
+        </footer>            
+      
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+  </body>
+</html>
